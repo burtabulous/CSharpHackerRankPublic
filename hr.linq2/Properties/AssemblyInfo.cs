@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CSharpHackerRankPublic")]
+[assembly: AssemblyTitle("hr.linq2")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CSharpHackerRankPublic")]
+[assembly: AssemblyProduct("hr.linq2")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("240669a0-cc5b-46c7-97d1-99f208f45fe2")]
+[assembly: Guid("e065e08f-77cf-4112-a09a-63d82b029139")]
 
 // Version information for an assembly consists of the following four values:
 //
