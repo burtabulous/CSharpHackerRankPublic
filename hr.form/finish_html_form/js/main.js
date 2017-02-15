@@ -1,8 +1,16 @@
-/* Javascript */
+/* 
+    hr.form
+ * 
+ * Complete the javascript logic below to make the form functional.
+ * See each //todo comment
+ * 
+ * 
+ * 
+  */
 
 
 function initForm() {
-    //todo: Populate the ddlRole select control with the following options
+    //todo: Populate the Role (#ddlRole) select control with the following options
     //  - Display     - Value
     //  ---------------------
     //  - Admin       - 0
@@ -10,7 +18,7 @@ function initForm() {
     //  - Tester      - 2
 
 
-    //todo: Create a jQuery UI Autocomplete control for txtState
+    //todo: Create a jQuery UI Autocomplete control for State (#txtState) textbox
     // - Use the states variable for the source
     // https://jqueryui.com/autocomplete/#custom-data
 
