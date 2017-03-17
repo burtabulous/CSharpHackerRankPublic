@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+/// Time to complete - ~20 minutes
 
 /// <summary>
 ///   Complete the implementation below however you see fit. (Hint: Use Object Oriented Programming techniques)
@@ -53,8 +54,37 @@ class Solution
 
 
     //todo
+    public class Dog : IAnimal
+    {
 
+        public int id { get; set; }
+        public string name { get; set; }
+        public int age { get; set; }
+        public int sortOrder { get; set; }
+        public string bread { get; set; }
 
+        public void print()
+        {
+            Console.WriteLine("\nid - {0} \nname - {1} \nbreed - {2}\n", this.id, this.name, this.bread);
+            printDashes();
+
+        }
+    }
+
+    public class Cat : IAnimal
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public int age { get; set; }
+        public int sortOrder { get; set; }
+        public int lives { get; set; }
+
+        public void print()
+        {
+            Console.WriteLine("\nid - {0} \nname - {1} \nlive - {2}\n", this.id, this.name, this.lives);
+            printDashes();
+        }
+    }
 
 
 
@@ -91,11 +121,13 @@ class Solution
             new Cat() {id = 6, name = "Alfred", age = 4, sortOrder = 1, lives = 6}
         };
 
+        Console.WriteLine("--------------------\n\tDOGS \n--------------------");
         foreach (var dog in dogs)
         {
             dog.print();
         }
 
+        Console.WriteLine("\tCATS \n--------------------");
         foreach (var cat in cats)
         {
             cat.print();
