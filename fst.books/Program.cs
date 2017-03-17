@@ -1,4 +1,5 @@
-﻿using System;
+﻿using fst.Books.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,11 @@ namespace fst.books
     {
         static void Main(string[] args)
         {
+            string url = "https://www.googleapis.com/books/v1/volumes?q=+inauthor:J.K.Rowling&key=AIzaSyDtKSe8z4oQYD6t5qqYYs15zZsCa1mAl5U";
+            BookService.GetBooks(url);
+            Console.ReadLine();
         }
+
+
     }
 }
