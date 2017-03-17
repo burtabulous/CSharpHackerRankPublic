@@ -8,8 +8,13 @@
  * the conent is hidden then show it when the header is clicked.
  * 
   */
+//time to complete: 5 minutes
+$(function () {
+    //Add your code here
+    $('.panel-heading').on('click', toggleBody);
 
+    function toggleBody() {
+        $('.panel-body').collapse('toggle');
+    };
 
- $(function(){
-	//Add your code here
- });
+});
