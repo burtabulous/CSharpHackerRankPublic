@@ -13,6 +13,8 @@ using System.Linq;
 ///   -Use the provided methods
 ///   -You must use LINQ
 /// </summary>
+/// 
+//Time to complete: 30 minutes
 class Solution
 {
     private class Dog
@@ -37,19 +39,39 @@ class Solution
     ///<summary>Print ONLY the dog names</summary>
     static void printDogNames()
     {
-        //todo
+        Console.WriteLine("--------------------\nDOGS BY NAME \n--------------------");
+
+        dogs.ForEach((Dog) => Console.WriteLine(Dog.name));
+        Console.WriteLine("--------------------");
     }
+
     ///<summary>Print all dogs order by their sortOrder property</summary>
     static void printDogsInOrder()
     {
-        //todo
+        Console.WriteLine("\nDOGS BY SORT ORDER \n--------------------\n");
+
+        var dogOrder = dogs.OrderBy(d => d.sortOrder);
+
+        foreach (Dog dog in dogOrder)
+        {
+            dog.print();
+        }
+
     }
+
     ///<summary>Print all dogs that have an age > 3 (sorted by sortOrder descending)</summary>
     static void printDogsOverAge3()
     {
-        //todo
-    }
+        Console.WriteLine("\nDOGS OLDER THAN 3 \n--------------------\n");
 
+        var dogOver3 = dogs.Where(d => d.age > 3).OrderByDescending(d => d.sortOrder);
+
+        foreach (Dog dog in dogOver3)
+        {
+            dog.print();
+        }
+
+    }
 
     private static List<Dog> dogs;
 
