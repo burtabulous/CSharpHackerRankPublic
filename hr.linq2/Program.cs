@@ -35,8 +35,8 @@ namespace LinqAdvanced
         public new void print()
         {
             base.print();
-            Console.WriteLine("tax - " + this.tax);
-            Console.WriteLine("total - " + this.total);
+            Console.WriteLine("tax - {0}", this.tax.ToString("C"));
+            Console.WriteLine("total - {0}", this.total.ToString("C"));
         }
     }
 
@@ -52,6 +52,16 @@ namespace LinqAdvanced
         public string zip { get; set; }
         public string city { get; set; }
         public string state { get; set; }
+
+        public new void print()
+        {
+            base.print();
+            Console.WriteLine("street - {0}", this.street);
+            Console.WriteLine("zip - {0}", this.zip);
+            Console.WriteLine("city - {0}", this.city);
+            Console.WriteLine("state - {0}\n", this.state);
+        }
+
     }
 
     internal class OrderItem : MyClass
@@ -59,6 +69,14 @@ namespace LinqAdvanced
         public string name { get; set; }
         public double price { get; set; }
         public int qty { get; set; }
+
+        public new void print()
+        {
+            base.print();
+            Console.WriteLine("name - {0}", this.name);
+            Console.WriteLine("price - {0}", this.price.ToString("C"));
+            Console.WriteLine("quantity - {0}\n", this.qty);
+        }
     }
 
     class Program
@@ -69,20 +87,59 @@ namespace LinqAdvanced
         public static List<Address> getAddressList()
         {
             //todo
-            return null; //This is here just so this file compiles
+            Console.WriteLine("--------------------\nGet Address List \n--------------------");
+
+            List<Address> addressList = new List<Address>();
+
+            List<Address> addressesByOrder = orders.Where(o => o.items.Count > 1).Select(c => c.customer.address).ToList();
+
+            foreach (Address address in addressesByOrder)
+            {
+                addressList.Add(address);
+
+            }
+
+            return addressList;
         }
+
 
         //select all order items from all orders as a list
         public static List<OrderItem> getAllOrderItems()
         {
             //todo
-            return null; //This is here just so this file compiles
+            Console.WriteLine("--------------------\nGet All Order Items \n--------------------");
+
+            List<OrderItem> ordersList = new List<OrderItem>();
+
+            var orderItems = orders.SelectMany(o => o.items);
+
+            foreach (var item in orderItems)
+            {
+                ordersList.Add(item);
+
+            }
+
+            return ordersList;
         }
 
         //update each orders tax and total based on it's order items
         public static void setTotals()
         {
-            //todo
+            double subTotal = 0;
+            double tax = 0;
+
+            foreach (var order in orders)
+            {
+                foreach (var item in order.items)
+                {
+                    subTotal = (item.qty * item.price);
+                    tax = (subTotal * .0775);
+                }
+
+                order.tax = tax;
+                order.total = subTotal + tax;
+            }
+
         }
 
         /*****************************************************************/
@@ -192,3 +249,4 @@ namespace LinqAdvanced
         }
     }
 }
+
