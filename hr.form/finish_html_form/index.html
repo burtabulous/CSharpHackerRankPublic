@@ -6,13 +6,11 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
     <script src="js/main.js"></script>
-
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
@@ -24,40 +22,40 @@
                 Create new Member
             </div>
             <div class='panel-body'>
-                <form id="createForm">
+                <form id="createForm" class="form-horizontal">
                     <div class="form-group">
-                        <label class="control-label col-xs-3" for="txtLastName">User Name</label>
+                        <label class="control-label col-xs-3" for="txtUserName">User Name</label>
                         <div class="col-xs-9">
-                            <input id="txtUserName" type="text" class="form-control" data-code="userName" />
+                            <input id="txtUserName" type="text" class="form-control" name="userName" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="txtFirstName">First Name</label>
                         <div class="col-xs-9">
-                            <input id="txtFirstName" type="text" class="form-control" data-code="fName"/>
+                            <input id="txtFirstName" type="text" class="form-control" name="firstName" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="txtLastName">Last Name</label>
                         <div class="col-xs-9">
-                            <input id="txtLastName" type="text" class="form-control" data-code="lName"/>
+                            <input id="txtLastName" type="text" class="form-control" name="lastName" />
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-xs-3" for="txtLastName">Role</label>
+                        <label class="control-label col-xs-3" for="ddlRole">Role</label>
                         <div class="col-xs-9">
-                            <select id="ddlRole" class="form-control" data-code="role"></select>
+                            <select id="ddlRole" class="form-control"></select>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-xs-3" for="txtLastName">State</label>
+                        <label class="control-label col-xs-3" for="txtState">State</label>
                         <div class="col-xs-9">
-                            <input id="txtState" type="text" class="form-control" data-code="stateName"/>
-                            <input type="hidden" id="txtState-code"/>
+                            <input id="txtState" type="text" class="form-control" name="stateName" />
+                            <input id="txtStateCode" type="text" class="hidden" />
                         </div>
                     </div>
 
@@ -77,6 +75,10 @@
                             <button id="btnSubmit" class="btn btn-default" type="button">Create</button>
                         </div>
                     </div>
+
+                    <div id="errorAlert" class="alert alert-danger hidden">There were some form input errors. Please try again.</div>
+                    <div id="successAlert" class="alert alert-success hidden">Your form was successfully submitted!</div>
+
                 </form>
             </div>
         </div>
@@ -84,3 +86,5 @@
 
 </body>
 </html>
+
+
